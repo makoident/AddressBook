@@ -1,0 +1,28 @@
+<h1>Welcome to Address Book!</h1>
+<br/>
+
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">A simple application to view, search, create, update and delete contacts.</li>
+  <li class="list-group-item">Application needs the backend server. Run the server and enter the server url in /environments/environment.ts and /environments/environment.prod.ts .</li>
+  <li class="list-group-item">Note: First query to the backend server will take a little longer to execute because the DB will be created on the server on the first query.</li>
+  <li class="list-group-item">Author: Marko Sekardi</li>
+</ul>
+
+<br /><br /><br />
+<div class="alert alert-success" role="alert">
+  To use the app, click on a link in the menu on the top of the page.
+</div>
+
+
+<br /><br /><br />
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">Settings:</li>
+  <li class="list-group-item">
+    <div class="custom-control custom-checkbox mb-3">
+      <input type="checkbox" class="custom-control-input" id="chkShowNotificationsInModalDialogWindows" [checked]="isChecked()" (change)="ChangeSetting_ShowNotificationsInModalDialogWindows($event)" >
+      <label class="custom-control-label" for="chkShowNotificationsInModalDialogWindows">Show notifications in modal dialog windows</label>
+    </div>
+  </li>
+</ul>
+
+

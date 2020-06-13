@@ -1,0 +1,24 @@
+<div class="spinner-container" *ngIf="ShowLoadingAnimation">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <br /><br /><br /><br />
+  <button (click)="btnBackClick()" type="button" class="btn btn-danger">Stop and go back</button>
+</div>
+
+<div *ngIf="ShowPersonCard">
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      Person
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Id: {{person.id}}</li>
+      <li class="list-group-item">First name: {{person.firstName}}</li>
+      <li class="list-group-item">Last name: {{person.lastName}}</li>
+      <li class="list-group-item">Address: {{person.address}}</li>
+      <li class="list-group-item">Telephone number: {{person.telephoneNumber}}</li>
+    </ul>
+  </div>
+  <br/>
+  <button (click)="btnBackClick()" type="button" class="btn btn-primary">Back</button>
+</div>

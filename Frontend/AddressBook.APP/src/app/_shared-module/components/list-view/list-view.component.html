@@ -1,0 +1,59 @@
+<div class="spinner-container" *ngIf="ShowLoadingAnimation">
+  <div class="spinner-border text-danger" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<app-alert-on-page (emitBtnOkClick)="AlertOnPageButton_Click($event)"></app-alert-on-page>
+
+<div *ngIf="ShowLoadingAnimation == false && ShowTable == true && peopleList.totalCount > 0">
+
+  <table #content class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Telephone number</th>
+        <th scope="col" *ngIf="!IsTableInSearchMode">View</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of peopleList.people">
+        <th scope="row">{{ person.id }}</th>
+        <td>{{ person.firstName }}</td>
+        <td>{{ person.lastName }}</td>
+        <td>{{ person.address }}</td>
+        <td>{{ person.telephoneNumber }}</td>
+        <td *ngIf="!IsTableInSearchMode">
+          <a [routerLink]="['/details', person.id]" [queryParams]="paginationParams" mat-icon-button color="accent">
+            <mat-icon class="mat-18">person</mat-icon>
+          </a>
+        </td>
+        <td>
+          <button mat-icon-button color="warn" (click)="UpdateEditDialog(person)">
+            <mat-icon class="mat-18">edit</mat-icon>
+          </button>
+        </td>
+        <td>
+          <button mat-icon-button color="accent" (click)="OpenDeleteDialog(person)">
+            <mat-icon class="mat-18">delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-between p-2" *ngIf="!IsTableInSearchMode">
+    <mat-paginator [length]="peopleList.totalCount"
+                   [pageIndex]="paginationParams.pageIndex"
+                   [pageSize]="paginationParams.pageSize"
+                   [pageSizeOptions]="[2, 5, 10, 25, 100]"
+                   (page)="PageNumberChanged($event)">
+    </mat-paginator>
+  </div>
+
+</div>

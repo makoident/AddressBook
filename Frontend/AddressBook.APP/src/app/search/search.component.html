@@ -1,0 +1,37 @@
+<h1>Search</h1>
+<br />
+
+<form>
+  <p>You can search by multiple fields. Enter data in as many fields as you want. Data is searched server side with AND operator between fields.</p>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="firstName">First name</label>
+      <input type="text" class="form-control" id="firstName" [(ngModel)]="person.firstName" name="firstName" placeholder="First name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="lastName">Last name</label>
+      <input type="text" class="form-control" id="lastName" [(ngModel)]="person.lastName" name="lastName" placeholder="Last name">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="address">Address</label>
+      <input type="text" class="form-control" id="address" [(ngModel)]="person.address" name="address" placeholder="Address">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="telephoneNumber">Telephone number</label>
+      <input type="text" class="form-control" id="telephoneNumber" [(ngModel)]="person.telephoneNumber" name="telephoneNumber" placeholder="Telephone number">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" (click)="SearchForPeople()">Search</button>
+  <button type="submit" class="btn btn-secondary" (click)="ClearSearch()" style="margin-left:20px;" *ngIf="person.firstName != '' || person.lastName != '' || person.address != '' || person.telephoneNumber != ''">New search</button>
+</form>
+
+<br />
+<div style="margin-bottom:45px;">
+  <app-alert-on-page></app-alert-on-page>
+</div>
+
+<app-list-view [paginationParams]="paginationParams" [IsTableInSearchMode]="IsTableInSearchMode"></app-list-view>

@@ -1,0 +1,8 @@
+<div *ngIf="Visible">
+  <br /><br />
+  <div *ngFor="let message of Messages" class="alert alert-{{Class}}" role="alert">
+    {{message}}
+  </div>
+  <button (click)="btnClicked(ButtonDataToEmit)" type="button" class="btn btn-{{Class}}" *ngIf="ButtonRedirectToUrl == '' && ButtonText">{{ButtonText}}</button>
+  <button routerLink="{{ButtonRedirectToUrl}}" type="button" class="btn btn-{{Class}}" *ngIf="ButtonRedirectToUrl != '' && router.url.startsWith(ButtonRedirectToUrl) == false">{{ButtonText}}</button>
+</div>

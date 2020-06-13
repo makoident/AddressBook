@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AddressBook.BLL\AddressBook.BLL.csproj" />
+    <ProjectReference Include="..\AddressBook.BOL\AddressBook.BOL.csproj" />
+  </ItemGroup>
+
+</Project>
